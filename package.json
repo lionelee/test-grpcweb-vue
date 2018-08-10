@@ -10,6 +10,9 @@
     "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
+    "@types/google-protobuf": "^3.2.7",
+    "grpc-web-client": "^0.6.2",
+    "ts-protoc-gen": "^0.7.6",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",

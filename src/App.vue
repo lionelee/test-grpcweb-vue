@@ -23,3 +23,23 @@
     &.router-link-exact-active
       color #42b983
 </style>
+
+<script>
+import { EchoServiceClient } from './proto/echo_pb_service';
+import { EchoRequest, EchoResponse } from './proto/echo_pb';
+
+export default{
+  async created() {
+    const request = new EchoRequest();
+    request.setMessage('hello');
+    const client = new EchoServiceClient('http://127.0.0.1:80');
+    client.echo(request, {}, (err, response) => {
+      if (err.code === grpc.Code.ok) {
+        console.log(response);
+      } else {
+        Message.error(err.message);
+      }
+    });
+  },
+};
+</script>
